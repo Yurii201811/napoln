@@ -21,7 +21,7 @@ class TestVersionCommand:
         assert "napoln" in result.output
         assert re.search(r"\d+\.\d+\.\d+", result.output)
 
-    def test_version_matches_installed_package(self):
+    def test_version_matches_installed_package(self) -> None:
         expected = importlib.metadata.version("napoln")
         result = CliRunner().invoke(app, ["--version"])
         assert result.exit_code == 0

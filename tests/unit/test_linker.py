@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib.metadata
 import tomllib
+from pathlib import Path
 
 import pytest
 
@@ -150,7 +151,7 @@ class TestRestorePlacement:
 class TestWriteProvenance:
     """write_provenance — .napoln tracking metadata."""
 
-    def test_records_installed_napoln_version(self, tmp_path):
+    def test_records_installed_napoln_version(self, tmp_path: Path) -> None:
         """Provenance records the installed napoln package version."""
         target = tmp_path / "placement"
         target.mkdir()
